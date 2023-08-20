@@ -1,8 +1,13 @@
+idRandom: ${random.value}
+
 spring:
   application:
-    name: movie-server
+    name: movies-service
   config:
-    import: optional:configserver:http://localhost:8888
-
+    import: optional:configserver:http://localhost:8888/
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 

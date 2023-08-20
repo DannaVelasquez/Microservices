@@ -16,7 +16,7 @@ public class CatalogController {
     @Autowired
     private IMovieClient iMovieClient;
 
-    @GetMapping("catalog/{genre}")
+    @GetMapping("/api/v1/movies/catalog/{genre}")
     public ResponseEntity<List<Movie>> getCatalogByGenre (@PathVariable String genre){
         return iMovieClient.getMovieByGenre(genre);
     }
