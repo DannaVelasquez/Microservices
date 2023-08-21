@@ -18,8 +18,8 @@ import java.util.List;
 @RequestMapping("/movies")
 public class MovieController {
 
-    @Value("${server.port}")
-    private static String serverPort;
+    @Value("${idRandom}")
+    private String idRandom;
 
     private final MovieService movieService;
 
@@ -28,10 +28,14 @@ public class MovieController {
     }
 
     @GetMapping("/{genre}")
-    ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre, HttpServletRequest request) {
-        int port = request.getServerPort();
-        System.out.println("El puerto de la solicitud es: " + port);
+    ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre) {
         return ResponseEntity.ok().body(movieService.findByGenre(genre));
+    }
+
+    //Validate load balancer (port random)
+    @GetMapping("/random")
+    public ResponseEntity<String> find() {
+        return ResponseEntity.ok(idRandom);
     }
 
     @PostMapping("/save")

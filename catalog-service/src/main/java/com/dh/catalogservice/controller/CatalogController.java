@@ -13,17 +13,18 @@ import java.util.List;
 @RestController
 public class CatalogController {
 
-    @Value("${server.port}")
-    private static String serverPort;
     @Autowired
     private IMovieClient iMovieClient;
 
     @GetMapping("/catalog/{genre}")
-    public ResponseEntity<List<Movie>> getCatalogByGenre (@PathVariable String genre, HttpServletResponse response){
-        response.addHeader("port", String.valueOf(serverPort));
+    public ResponseEntity<List<Movie>> getCatalogByGenre (@PathVariable String genre){
         return iMovieClient.getMovieByGenre(genre);
     }
 
+    @GetMapping("/catalog/random")
+    public ResponseEntity<String> find() {
+        return ResponseEntity.ok(iMovieClient.find());
+    }
     @PostMapping("/save")
     public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
         return iMovieClient.saveMovie(movie);

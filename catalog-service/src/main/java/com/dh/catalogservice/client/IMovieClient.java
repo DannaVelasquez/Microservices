@@ -19,6 +19,10 @@ public interface IMovieClient {
     @GetMapping("/movies/{genre}")
     ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre);
 
+    @GetMapping("/movies/random")
+    public String find();
+
+
     @PostMapping("/save")
     ResponseEntity<Movie> saveMovie(@RequestBody Movie movie);
 }
