@@ -2,6 +2,7 @@ package com.dh.movieservice;
 
 import com.dh.movieservice.model.Movie;
 import com.dh.movieservice.repository.MovieRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,9 +15,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableDiscoveryClient
 public class MovieServiceApplication {
 
+
     public static void main(String[] args) {
         SpringApplication.run(MovieServiceApplication.class, args);
     }
+
 
     @Bean
     public CommandLineRunner loadData(MovieRepository repository) {
