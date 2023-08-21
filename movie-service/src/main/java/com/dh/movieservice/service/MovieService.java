@@ -2,7 +2,10 @@ package com.dh.movieservice.service;
 
 import com.dh.movieservice.model.Movie;
 import com.dh.movieservice.repository.MovieRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -21,9 +24,11 @@ public class MovieService {
 
     public List<Movie> findByGenre(String genre) {
         return movieRepository.findByGenre(genre);
+        //return movieRepository.findByGenre(genre);
     }
 
     public Movie save(Movie movie) {
         return movieRepository.save(movie);
     }
+
 }

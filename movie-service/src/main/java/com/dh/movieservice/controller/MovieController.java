@@ -2,9 +2,12 @@ package com.dh.movieservice.controller;
 
 import com.dh.movieservice.model.Movie;
 import com.dh.movieservice.service.MovieService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -12,8 +15,11 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/api/v1/movies")
+@RequestMapping("/movies")
 public class MovieController {
+
+    @Value("${idRandom}")
+    private String idRandom;
 
     private final MovieService movieService;
 
@@ -24,6 +30,12 @@ public class MovieController {
     @GetMapping("/{genre}")
     ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre) {
         return ResponseEntity.ok().body(movieService.findByGenre(genre));
+    }
+
+    //Validate load balancer (port random)
+    @GetMapping("/random")
+    public ResponseEntity<String> find() {
+        return ResponseEntity.ok(idRandom);
     }
 
     @PostMapping("/save")
