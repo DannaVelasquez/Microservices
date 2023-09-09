@@ -1,0 +1,14 @@
+
+  idRandom: ${random.value}
+
+  spring:
+    application:
+      name: series-service
+    config:
+      import: optional:configserver:http://localhost:8888/
+  eureka:
+    instance:
+      hostname: localhost
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
