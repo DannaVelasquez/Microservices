@@ -1,9 +1,12 @@
 package com.dh.catalogservice.controller;
 
 import com.dh.catalogservice.client.IMovieClient;
+import com.dh.catalogservice.client.ISerieClient;
 import com.dh.catalogservice.model.Movie;
 import com.dh.catalogservice.queue.MovieSender;
+import com.example.serieservice.model.Serie;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +17,9 @@ public class CatalogController {
 
     @Autowired
     private IMovieClient iMovieClient;
+
+    @Autowired
+    private ISerieClient iSerieClient;
 
     private final MovieSender sender;
 
@@ -37,4 +43,20 @@ public class CatalogController {
         return iMovieClient.saveMovie(movie);
     }
 
+    @GetMapping
+    public List<com.dh.catalogservice.model.Serie> getAll() {
+        return iSerieClient.getAll();
+    }
+
+    @GetMapping("/catalog/series/{genre}")
+    public List<com.dh.catalogservice.model.Serie> getSerieByGenre(@PathVariable String genre) {
+        return iSerieClient.getSerieByGenre(genre);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public String create(@RequestBody Serie serie) {
+        iSerieClient.create(serie);
+        return serie.getId();
+    }
 }
