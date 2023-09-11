@@ -22,7 +22,6 @@ public interface IMovieClient {
     @GetMapping("/movies/random")
     public String find();
 
-
-    @PostMapping("/save")
+    @PostMapping("movies/save")
     ResponseEntity<Movie> saveMovie(@RequestBody Movie movie);
 }

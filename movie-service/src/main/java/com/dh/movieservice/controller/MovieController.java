@@ -1,9 +1,11 @@
 package com.dh.movieservice.controller;
 
 import com.dh.movieservice.model.Movie;
+import com.dh.movieservice.queue.MovieListener;
 import com.dh.movieservice.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,7 @@ import java.util.List;
  */
 
 @RestController
+@RefreshScope
 @RequestMapping("/movies")
 public class MovieController {
 
@@ -23,8 +26,13 @@ public class MovieController {
 
     private final MovieService movieService;
 
-    public MovieController(MovieService movieService) {
+    private final MovieListener listener;
+
+
+
+    public MovieController(MovieService movieService, MovieListener listener) {
         this.movieService = movieService;
+        this.listener = listener;
     }
 
     @GetMapping("/{genre}")
@@ -40,6 +48,7 @@ public class MovieController {
 
     @PostMapping("/save")
     ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
+        listener.receive(movie);
         return ResponseEntity.ok().body(movieService.save(movie));
     }
 }
