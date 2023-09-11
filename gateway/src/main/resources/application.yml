@@ -3,3 +3,5 @@ spring:
     name: gateway
   config:
     import: optional:configserver:http://localhost:8888/
+  zipkin:
+    base-url: http://localhost:9411/
