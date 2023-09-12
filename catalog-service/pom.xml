@@ -92,12 +92,7 @@
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
             <scope>4.2.3</scope>
         </dependency>
-        <dependency>
-            <groupId>com.dh.serie</groupId>
-            <artifactId>serie-service</artifactId>
-            <version>0.0.1</version>
-            <scope>compile</scope>
-        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>

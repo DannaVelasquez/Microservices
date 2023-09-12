@@ -22,5 +22,5 @@ public interface ISerieClient {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String create(@RequestBody com.example.serieservice.model.Serie serie);
+    public String create(@RequestBody Serie serie);
 }
