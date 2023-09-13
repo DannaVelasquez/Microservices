@@ -1,9 +1,6 @@
 package com.dh.catalogservice.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
@@ -12,16 +9,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@Data
+@Document
+@RequiredArgsConstructor
+public class Serie{
 
-public record Serie(String id, String name, String genre, List<Season> seasons) {
+    @MongoId
+    private String id;
+    private String name;
+    private String genre;
+    private List<Season> seasons = new ArrayList<>();
 
-    public String getId() {
-        return getId();
-    }
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Setter
+    @Getter
+    public static class Season {
 
-    public record Season(Integer seasonNumber, List<Chapter> chapters) {
+        private Integer seasonNumber;
+        private List<Chapter> chapters = new ArrayList<>();
 
-        public record Chapter(String name, Integer number, String urlStream) {
+        @AllArgsConstructor
+        @NoArgsConstructor
+        @Setter
+        @Getter
+        public static class Chapter {
+
+            private String name;
+            private Integer number;
+            private String urlStream;
+
+
         }
+
     }
+
 }

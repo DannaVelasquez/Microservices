@@ -23,10 +23,12 @@ public class CatalogController {
 
     private final MovieSender sender;
 
-    public CatalogController(IMovieClient iMovieClient, MovieSender sender) {
+    public CatalogController(IMovieClient iMovieClient, ISerieClient iSerieClient, MovieSender sender) {
         this.iMovieClient = iMovieClient;
+        this.iSerieClient = iSerieClient;
         this.sender = sender;
     }
+
 
     @GetMapping("/catalog/{genre}")
     public ResponseEntity<List<Movie>> getCatalogByGenre (@PathVariable String genre){
@@ -44,12 +46,12 @@ public class CatalogController {
     }
 
     @GetMapping
-    public List<com.dh.catalogservice.model.Serie> getAll() {
+    public List<Serie> getAll() {
         return iSerieClient.getAll();
     }
 
     @GetMapping("/catalog/series/{genre}")
-    public List<com.dh.catalogservice.model.Serie> getSerieByGenre(@PathVariable String genre) {
+    public List<Serie> getCatalogSByGenre(@PathVariable String genre) {
         return iSerieClient.getSerieByGenre(genre);
     }
 

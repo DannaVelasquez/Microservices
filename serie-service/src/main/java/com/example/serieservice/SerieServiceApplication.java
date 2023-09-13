@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SpringBootApplication
+@EnableMongoRepositories
 @EnableDiscoveryClient
 public class SerieServiceApplication {
 
