@@ -8,10 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SerieListener {
-
     private final SerieService service;
-
-
     public SerieListener(SerieService service) {
         this.service = service;
     }

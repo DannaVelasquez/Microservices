@@ -20,7 +20,6 @@ import java.util.List;
 public class SerieController {
 
     private final SerieService serieService;
-
     private final SerieListener listener;
 
     public SerieController(SerieService serieService, SerieListener listener) {

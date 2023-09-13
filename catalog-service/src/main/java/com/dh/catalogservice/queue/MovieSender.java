@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 public class MovieSender {
 
     private final RabbitTemplate rabbitTemplate;
-
     private final Queue movieQueue;
 
     public MovieSender(RabbitTemplate rabbitTemplate, Queue movieQueue) {

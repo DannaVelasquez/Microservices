@@ -14,7 +14,7 @@ import java.util.List;
 @FeignClient(name = "serie-service")
 public interface ISerieClient {
 
-    @GetMapping
+    @GetMapping("/series")
     public List<Serie> getAll();
 
     @GetMapping("/series/{genre}")
