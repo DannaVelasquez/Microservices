@@ -7,12 +7,20 @@ import com.dh.catalogservice.model.Movie;
 import com.dh.catalogservice.model.Serie;
 import com.dh.catalogservice.queue.MovieSender;
 import com.dh.catalogservice.queue.SerieSender;
+import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
+import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.XSlf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @RestController
 public class CatalogController {
 
@@ -68,6 +76,8 @@ public class CatalogController {
     }
 
     //Peticion HTTP para consultar por genero tanto SERIES como MOVIES
+    @CircuitBreaker(name = "genres", fallbackMethod = "empty")
+    @Retry(name = "genres")
     @GetMapping("/catalog/{genre}")
     public ResponseEntity<Genre> getCatalogByGenre(@PathVariable String genre) {
         List<Movie> movies = iMovieClient.getMovieByGenre(genre).getBody();
@@ -77,7 +87,12 @@ public class CatalogController {
         catalogResponse.setMovie(movies);
         catalogResponse.setSerie(series);
 
+        log.info("Calling catalog service....");
         return ResponseEntity.ok(catalogResponse);
+    }
+
+    private ResponseEntity<Genre> empty(CallNotPermittedException exception){
+        return (ResponseEntity<Genre>) ResponseEntity.notFound();
     }
 
 }

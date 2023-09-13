@@ -6,16 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6a817c50-1e22-4ea4-b405-b37e9de1a2c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/client/ISerieClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/client/ISerieClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/controller/CatalogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/controller/CatalogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/model/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/model/Genre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/queue/MovieSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/queue/MovieSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/queue/SerieSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/queue/SerieSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/rabbitConfig/RabbitMQSenderConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/rabbitConfig/RabbitMQSenderConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/rabbitConfig/RabbitTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/java/com/dh/catalogservice/rabbitConfig/RabbitTemplateConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serie-service/src/main/java/com/example/serieservice/controller/SerieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/serie-service/src/main/java/com/example/serieservice/controller/SerieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serie-service/src/main/java/com/example/serieservice/queue/SerieListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/serie-service/src/main/java/com/example/serieservice/queue/SerieListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serie-service/src/main/java/com/example/serieservice/rabbitConfig/RabbitTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/serie-service/src/main/java/com/example/serieservice/rabbitConfig/RabbitTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/catalog-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/src/main/java/com/dh/movieservice/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/movie-service/src/main/java/com/dh/movieservice/service/MovieService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,15 +58,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Danna/Documents/GitHub/Esp BackEnd/Parcial1/ParcialConfig&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Danna/Documents/Tech Developer - DH/Especializacion BE/Microservicios/Ejercicio Circuit Breaker/Ejercicio para clase en vivo",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
-  <component name="RunManager" selected="Application.SerieServiceApplication">
+}]]></component>
+  <component name="RunManager" selected="Application.MovieServiceApplication">
     <configuration name="CatalogServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dh.catalogservice.CatalogServiceApplication" />
       <module name="catalog-service" />
@@ -140,8 +135,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SerieServiceApplication" />
         <item itemvalue="Application.MovieServiceApplication" />
+        <item itemvalue="Application.SerieServiceApplication" />
         <item itemvalue="Application.CatalogServiceApplication" />
         <item itemvalue="Application.GatewayApplication" />
         <item itemvalue="Application.EurekaServerApplication" />

@@ -22,3 +22,24 @@ queue:
     name: MovieQueue
   serie:
     name: SerieQueue
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      genres:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 15000
+        permittedNumberOfCallsInHalfOpenState: 3
+        registerHealthIndicator: true
+        allowHealthIndicatorToFail: false
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+
+  retry:
+    instances:
+      genres:
+        waitDuration: 1000
+        maxAttempts: 3
+        retryExceptions:
+          - feign.FeignException$InternalServerError
