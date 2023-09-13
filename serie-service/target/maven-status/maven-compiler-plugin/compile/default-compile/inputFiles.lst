@@ -1,0 +1,7 @@
+C:\Users\ramir\OneDrive\Escritorio\Esp. BE-I\Parcial\ParcialMicroservices\serie-service\src\main\java\com\example\serieservice\service\SerieService.java
+C:\Users\ramir\OneDrive\Escritorio\Esp. BE-I\Parcial\ParcialMicroservices\serie-service\src\main\java\com\example\serieservice\model\Serie.java
+C:\Users\ramir\OneDrive\Escritorio\Esp. BE-I\Parcial\ParcialMicroservices\serie-service\src\main\java\com\example\serieservice\repository\SerieRepository.java
+C:\Users\ramir\OneDrive\Escritorio\Esp. BE-I\Parcial\ParcialMicroservices\serie-service\src\main\java\com\example\serieservice\queue\SerieListener.java
+C:\Users\ramir\OneDrive\Escritorio\Esp. BE-I\Parcial\ParcialMicroservices\serie-service\src\main\java\com\example\serieservice\rabbitConfig\RabbitTemplateConfig.java
+C:\Users\ramir\OneDrive\Escritorio\Esp. BE-I\Parcial\ParcialMicroservices\serie-service\src\main\java\com\example\serieservice\SerieServiceApplication.java
+C:\Users\ramir\OneDrive\Escritorio\Esp. BE-I\Parcial\ParcialMicroservices\serie-service\src\main\java\com\example\serieservice\controller\SerieController.java

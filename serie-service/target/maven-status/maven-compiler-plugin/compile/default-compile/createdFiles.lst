@@ -1,0 +1,2 @@
+com\example\serieservice\rabbitConfig\RabbitTemplateConfig.class
+com\example\serieservice\queue\SerieListener.class
