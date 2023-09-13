@@ -20,7 +20,7 @@ public interface ISerieClient {
     @GetMapping("/series/{genre}")
     public List<Serie> getSerieByGenre(@PathVariable String genre);
 
-    @PostMapping
+    @PostMapping("/series")
     @ResponseStatus(HttpStatus.CREATED)
     public String create(@RequestBody Serie serie);
 }

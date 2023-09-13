@@ -3,6 +3,7 @@ package com.example.serieservice.controller;
 import com.example.serieservice.model.Serie;
 import com.example.serieservice.queue.SerieListener;
 import com.example.serieservice.service.SerieService;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import java.util.List;
  */
 
 @RestController
+@RefreshScope
 @RequestMapping("/series")
 public class SerieController {
 

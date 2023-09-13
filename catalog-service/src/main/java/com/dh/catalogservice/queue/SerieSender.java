@@ -13,9 +13,9 @@ public class SerieSender {
 
     private final Queue serieQueue;
 
-    public SerieSender(RabbitTemplate rabbitTemplate, Queue movieQueue) {
+    public SerieSender(RabbitTemplate rabbitTemplate, Queue serieQueue) {
         this.rabbitTemplate = rabbitTemplate;
-        this.serieQueue = movieQueue;
+        this.serieQueue = serieQueue;
     }
 
 

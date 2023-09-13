@@ -16,7 +16,7 @@ public class SerieListener {
         this.service = service;
     }
 
-    @RabbitListener(queues = {"${queue.series.name}"})
+    @RabbitListener(queues = {"${queue.serie.name}"})
     public void receive(@Payload Serie serie)
     {
         try {
