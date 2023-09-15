@@ -1,13 +1,35 @@
 {
 	"info": {
-		"_postman_id": "38ed55ce-8050-46fa-a2bd-efd967ca97bf",
-		"name": "ParcialMicroservicios",
+		"_postman_id": "ac5acf52-2718-487d-8659-9d35fb5ae358",
+		"name": "FinalMicroservicios",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "18152831"
 	},
 	"item": [
 		{
 			"name": "Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57022/api/v1/movies/Terror",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57022",
+					"path": [
+						"api",
+						"v1",
+						"movies",
+						"Terror"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Series",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -95,7 +117,51 @@
 			"response": []
 		},
 		{
-			"name": "Catalog",
+			"name": "Catalog Movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57022/api/v1/movies/Terror",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57022",
+					"path": [
+						"api",
+						"v1",
+						"movies",
+						"Terror"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Catalog Genre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57022/api/v1/movies/Terror",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57022",
+					"path": [
+						"api",
+						"v1",
+						"movies",
+						"Terror"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Catalog Series",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -162,6 +228,35 @@
 		},
 		{
 			"name": "Add Movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": 5,\r\n        \"name\": \"Fast and Furious\",\r\n        \"genre\": \"Ficcion\",\r\n        \"urlStream\": \"www.netflix.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:63035/movies/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63035",
+					"path": [
+						"movies",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Serie",
 			"request": {
 				"method": "POST",
 				"header": [],
