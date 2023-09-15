@@ -42,10 +42,21 @@ public class CatalogController {
     }
 
     //Peticiones HTTP para MOVIES
+
+    //Se configura circuit breaker, retry y método fallback para en caso de que falle el servicio
+    @CircuitBreaker(name = "movies", fallbackMethod = "moviesFindAllEmpty")
+    @Retry(name = "movies")
     @GetMapping("/catalog/movie/{genre}")
     public ResponseEntity<List<Movie>> getMovieByGenre (@PathVariable String genre){
-        return iMovieClient.getMovieByGenre(genre);
+        log.info("Calling movie service...");
+        return iMovieClient.getMovieByGenre(genre,false); // false para que se ejecute normal, true para generar que falle
     }
+
+    //Método Fallback - Circuit Breaker
+    private ResponseEntity<List<Movie>> moviesFindAllEmpty(String genre, CallNotPermittedException exception) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ArrayList<>());
+    }
+
     @GetMapping("/catalog/random")
     public ResponseEntity<String> find() {
         return ResponseEntity.ok(iMovieClient.find());
@@ -76,23 +87,17 @@ public class CatalogController {
     }
 
     //Peticion HTTP para consultar por genero tanto SERIES como MOVIES
-    @CircuitBreaker(name = "genres", fallbackMethod = "empty")
-    @Retry(name = "genres")
+
     @GetMapping("/catalog/{genre}")
     public ResponseEntity<Genre> getCatalogByGenre(@PathVariable String genre) {
-        List<Movie> movies = iMovieClient.getMovieByGenre(genre).getBody();
+        List<Movie> movies = iMovieClient.getMovieByGenre(genre, false).getBody(); //false para que se ejecute normal, true para generar que falle
         List<Serie> series = iSerieClient.getSerieByGenre(genre);
 
         Genre catalogResponse = new Genre();
         catalogResponse.setMovie(movies);
         catalogResponse.setSerie(series);
 
-        log.info("Calling catalog service....");
         return ResponseEntity.ok(catalogResponse);
-    }
-
-    private ResponseEntity<Genre> empty(CallNotPermittedException exception){
-        return (ResponseEntity<Genre>) ResponseEntity.notFound();
     }
 
 }

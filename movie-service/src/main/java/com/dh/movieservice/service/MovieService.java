@@ -24,7 +24,11 @@ public class MovieService {
     }
 
 
-    public List<Movie> findByGenre(String genre) {
+    //Se implementa la variable booleana para generar la excepción
+    public List<Movie> findByGenre(String genre, Boolean throwError) {
+        if(throwError)
+            throw new RuntimeException();
+
         return movieRepository.findByGenre(genre);
     }
 

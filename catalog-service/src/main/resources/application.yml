@@ -23,10 +23,22 @@ queue:
   serie:
     name: SerieQueue
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+
 resilience4j:
   circuitbreaker:
     instances:
-      genres:
+      movies:
         slidingWindowType: COUNT_BASED
         slidingWindowSize: 5
         failureRateThreshold: 50
@@ -38,7 +50,7 @@ resilience4j:
 
   retry:
     instances:
-      genres:
+      movies:
         waitDuration: 1000
         maxAttempts: 3
         retryExceptions:

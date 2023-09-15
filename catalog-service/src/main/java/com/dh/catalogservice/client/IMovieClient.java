@@ -5,10 +5,7 @@ import com.dh.catalogservice.model.Movie;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,8 +13,9 @@ import java.util.List;
 @LoadBalancerClient(name = "movie-service", configuration = ConfigurationLoadBalancer.class)
 public interface IMovieClient {
 
+    //Se agrega la variable booleana para circuit breaker
     @GetMapping("/movies/{genre}")
-    ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre);
+    ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre, @RequestParam Boolean throwError);
 
     @GetMapping("/movies/random")
     public String find();

@@ -35,9 +35,10 @@ public class MovieController {
         this.listener = listener;
     }
 
+    //Se asigna la variable booleana para el circuit breaker
     @GetMapping("/{genre}")
-    ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre) {
-        return ResponseEntity.ok().body(movieService.findByGenre(genre));
+    ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre, @RequestParam(defaultValue = "true") Boolean throwError) {
+        return ResponseEntity.ok().body(movieService.findByGenre(genre, throwError));
     }
 
     //Validate load balancer (port random)
